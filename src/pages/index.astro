@@ -1,16 +1,203 @@
 ---
-
+/*
+  src/pages/index.astro
+  Converted from user's index.html (see citation above).
+  Notes:
+  - Put style.css into "public/style.css" or update the href to point to your CSS location.
+  - Place images under "public/assets/img/" (e.g. public/assets/img/profile.png, public/assets/img/pumpkin.webp).
+  - If you want to use Astro components or layouts later, move markup into a layout and replace this page's body with <Layout> slots.
+*/
 ---
+<!doctype html>
+<html data-bs-theme="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>Home - Korporācija VCB</title>
+    <!-- Keep or move these to a layout/head partial as you prefer -->
+    <link rel="stylesheet" href="src/styles/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  </head>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
+    <nav class="navbar navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="#page-top">Brand</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link px-0 px-lg-3 py-3 rounded" href="#portfolio">Portfolio</a></li>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link px-0 px-lg-3 py-3 rounded" href="#about">About</a></li>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link px-0 px-lg-3 py-3 rounded" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="text-center text-white bg-primary masthead">
+      <div class="container">
+        <!-- make sure this image exists at public/assets/img/profile.png -->
+        <img class="img-fluid d-block mb-5 mx-auto" src="/assets/img/profile.png" alt="profile" />
+        <h1>Stepans Gavrilovs</h1>
+        <hr class="star-light" />
+        <h2 class="fw-light mb-0">Web and Robotics Developer, Cybersecurity Specialist</h2>
+      </div>
+    </header>
+
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <h2 class="text-uppercase text-center text-secondary">Portfolio</h2>
+        <hr class="mb-5 star-dark" />
+        <div class="row">
+          <!-- Fixed image src paths from local Windows paths to web-friendly paths.
+               Ensure pumpkin.webp is placed at public/assets/img/pumpkin.webp -->
+          <div class="col-md-6 col-lg-4">
+            <a class="d-block mx-auto portfolio-item" href="#portfolio-modal-1" data-bs-toggle="modal">
+              <div class="position-absolute d-flex w-100 h-100 portfolio-item-caption">
+                <div class="text-center text-white w-100 my-auto portfolio-item-caption-content"><i class="fa fa-search-plus fa-3x"></i></div>
+              </div>
+              <img class="img-fluid" src="/assets/img/pumpkin.webp" alt="portfolio item 1" />
+            </a>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <a class="d-block mx-auto portfolio-item" href="#portfolio-modal-2" data-bs-toggle="modal">
+              <div class="position-absolute d-flex w-100 h-100 portfolio-item-caption">
+                <div class="text-center text-white w-100 my-auto portfolio-item-caption-content"><i class="fa fa-search-plus fa-3x"></i></div>
+              </div>
+              <img class="img-fluid" src="/assets/img/pumpkin.webp" alt="portfolio item 2" />
+            </a>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <a class="d-block mx-auto portfolio-item" href="#portfolio-modal-3" data-bs-toggle="modal">
+              <div class="position-absolute d-flex w-100 h-100 portfolio-item-caption">
+                <div class="text-center text-white w-100 my-auto portfolio-item-caption-content"><i class="fa fa-search-plus fa-3x"></i></div>
+              </div>
+              <img class="img-fluid" src="/assets/img/pumpkin.webp" alt="portfolio item 3" />
+            </a>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <a class="d-block mx-auto portfolio-item" href="#portfolio-modal-4" data-bs-toggle="modal">
+              <div class="position-absolute d-flex w-100 h-100 portfolio-item-caption">
+                <div class="text-center text-white w-100 my-auto portfolio-item-caption-content"><i class="fa fa-search-plus fa-3x"></i></div>
+              </div>
+              <img class="img-fluid" src="/assets/img/pumpkin.webp" alt="portfolio item 4" />
+            </a>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <a class="d-block mx-auto portfolio-item" href="#portfolio-modal-5" data-bs-toggle="modal">
+              <div class="position-absolute d-flex w-100 h-100 portfolio-item-caption">
+                <div class="text-center text-white w-100 my-auto portfolio-item-caption-content"><i class="fa fa-search-plus fa-3x"></i></div>
+              </div>
+              <img class="img-fluid" src="/assets/img/pumpkin.webp" alt="portfolio item 5" />
+            </a>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <a class="d-block mx-auto portfolio-item" href="#portfolio-modal-6" data-bs-toggle="modal">
+              <div class="position-absolute d-flex w-100 h-100 portfolio-item-caption">
+                <div class="text-center text-white w-100 my-auto portfolio-item-caption-content"><i class="fa fa-search-plus fa-3x"></i></div>
+              </div>
+              <img class="img-fluid" src="/assets/img/pumpkin.webp" alt="portfolio item 6" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="text-white bg-primary mb-0" id="about">
+      <div class="container">
+        <h2 class="text-uppercase text-center text-white">About</h2>
+        <hr class="mb-5 star-light" />
+        <div class="row">
+          <div class="col-lg-4 ms-auto">
+            <p class="lead">Freelancer is a free bootstrap theme. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+          </div>
+          <div class="col-lg-4 me-auto">
+            <p class="lead">Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="text-uppercase text-center text-secondary mb-0">Contact Me</h2>
+        <hr class="mb-5 star-dark" />
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <!-- form action retained from original; in Astro you may want to replace with an API route -->
+            <form id="contactForm" name="sentMessage" action="/send_email.php" method="post" novalidate>
+              <div>
+                <div class="mb-0 pb-2 form-floating">
+                  <input class="form-control" type="text" id="name" required placeholder="" />
+                  <label class="form-label" for="name">Name</label>
+                  <small class="form-text text-danger help-block"></small>
+                </div>
+              </div>
+
+              <div>
+                <div class="mb-0 pb-2 form-floating">
+                  <input class="form-control" type="email" id="email" required placeholder="" />
+                  <label class="form-label" for="email">Email Address</label>
+                  <small class="form-text text-danger help-block"></small>
+                </div>
+              </div>
+
+              <div>
+                <div class="mb-0 pb-2 form-floating">
+                  <input class="form-control" type="text" id="subject" required placeholder="" />
+                  <label class="form-label" for="subject">Subject</label>
+                  <small class="form-text text-danger help-block"></small>
+                </div>
+              </div>
+
+              <div>
+                <div class="mb-5 pb-2 form-floating">
+                  <textarea class="form-control" id="message" required placeholder="" style="height: 150px;"></textarea>
+                  <label class="form-label" for="message">Message</label>
+                  <small class="form-text text-danger help-block"></small>
+                </div>
+              </div>
+
+              <div id="success"></div>
+              <div><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Send</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-center footer">
+      <div class="container">
+        <div class="row">
+          <div class="row-location col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Location</h4>
+            <p>2215 John Daniel Drive<br />Clark, MO 65243</p>
+          </div>
+
+          <div class="row-web col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase">Around the Web</h4>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="#"><i class="fa fa-facebook fa-fw"></i></a></li>
+              <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="#"><i class="fa fa-google-plus fa-fw"></i></a></li>
+              <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="#"><i class="fa fa-twitter fa-fw"></i></a></li>
+              <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="#"><i class="fa fa-dribbble fa-fw"></i></a></li>
+            </ul>
+          </div>
+
+          <div class="row-about col-md-4">
+            <h4 class="text-uppercase mb-4">About Freelancer</h4>
+            <p class="lead mb-0"><span>Freelance is a free to use, open source Bootstrap theme.&nbsp;</span></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="text-center text-white py-4 copyright">
+      <div class="container"><small>Copyright © Korporācija VCB 2025</small></div>
+    </div>
+  </body>
 </html>
