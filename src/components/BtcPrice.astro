@@ -1,11 +1,15 @@
-<div id="btc-price" aria-live="polite">Loading...</div>
+<div class="btc">
 
-<script client:load>
+  <span class="price" id="btc-price" aria-live="polite">Loading...</span>
+</div>
+
+<script>
   const el = document.getElementById('btc-price');
   if (!el) {
     // If element not found, nothing to do on the client
     console.warn('BTC price element not found');
   } else {
+    const target = el;
     async function loadPrice() {
         try {
           // Try primary source (CoinDesk)
@@ -36,10 +40,10 @@
         const formatted = (typeof raw === 'number')
           ? raw.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
           : String(raw ?? 'N/A');
-        el.textContent = `BTC Price: $${formatted}`;
+        target.textContent = `BTC Price: $${formatted}`;
       } catch (err) {
         console.error('Error fetching BTC price:', err);
-        el.textContent = `Error loading price: ${err?.message ?? err}`;
+        target.textContent = `Error loading price: ${((err as any)?.message) ?? String(err)}`;
       }
     }
 
