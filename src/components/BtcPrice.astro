@@ -1,0 +1,51 @@
+<div id="btc-price" aria-live="polite">Loading...</div>
+
+<script client:load>
+  const el = document.getElementById('btc-price');
+  if (!el) {
+    // If element not found, nothing to do on the client
+    console.warn('BTC price element not found');
+  } else {
+    async function loadPrice() {
+        try {
+          // Try primary source (CoinDesk)
+          let data;
+          try {
+            const res = await fetch('https://api.coindesk.com/v1/bpi/currentprice.json');
+            if (!res.ok) throw new Error(`CoinDesk HTTP ${res.status}`);
+            data = await res.json();
+          } catch (errPrimary) {
+            console.warn('CoinDesk fetch failed, trying CoinGecko/local fallback', errPrimary);
+            // Try CoinGecko next
+            try {
+              const res2 = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
+              if (!res2.ok) throw new Error(`CoinGecko HTTP ${res2.status}`);
+              const cg = await res2.json();
+              data = { bpi: { USD: { rate_float: cg?.bitcoin?.usd } } };
+            } catch (errCg) {
+              console.warn('CoinGecko failed, falling back to local mock', errCg);
+              // Final fallback: local mock JSON (served from public/mock/btc.json)
+              const res3 = await fetch('/mock/btc.json');
+              if (!res3.ok) throw new Error(`Local mock HTTP ${res3.status}`);
+              data = await res3.json();
+            }
+          }
+
+          const usd = data?.bpi?.USD;
+          const raw = (typeof usd?.rate_float === 'number') ? usd.rate_float : usd?.rate;
+        const formatted = (typeof raw === 'number')
+          ? raw.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+          : String(raw ?? 'N/A');
+        el.textContent = `BTC Price: $${formatted}`;
+      } catch (err) {
+        console.error('Error fetching BTC price:', err);
+        el.textContent = `Error loading price: ${err?.message ?? err}`;
+      }
+    }
+
+    loadPrice();
+    const timer = setInterval(loadPrice, 15000);
+    // cleanup on page unload
+    window.addEventListener('beforeunload', () => clearInterval(timer));
+  }
+</script>

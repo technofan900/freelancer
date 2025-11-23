@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="Pumpkin placeholder">
+  <rect width="100%" height="100%" fill="#f7b733" rx="12"/>
+  <g transform="translate(10,20)">
+    <ellipse cx="50" cy="50" rx="44" ry="34" fill="#ff8c42"/>
+    <path d="M10 50 Q30 10 50 50 T90 50" fill="#e56b1f" opacity="0.6"/>
+    <rect x="46" y="8" width="8" height="16" rx="2" fill="#6b3e00" />
+  </g>
+  <text x="50%" y="110" font-size="10" text-anchor="middle" fill="#6b3e00">pumpkin</text>
+</svg>
