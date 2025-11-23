@@ -126,54 +126,76 @@ import BtcPrice from "../components/BtcPrice.astro";
         </div>
       </div>
     </section>
+<section id="contact">
+  <div class="container">
+    <h2 class="text-uppercase text-center text-secondary mb-0">Contact Me</h2>
+    <hr class="mb-5 star-dark" />
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
 
-    <section id="contact">
-      <div class="container">
-        <h2 class="text-uppercase text-center text-secondary mb-0">Contact Me</h2>
-        <hr class="mb-5 star-dark" />
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <!-- form action retained from original; in Astro you may want to replace with an API route -->
-            <form id="contactForm" name="sentMessage" action="/send_email.php" method="post" novalidate>
-              <div>
-                <div class="mb-0 pb-2 form-floating">
-                  <input class="form-control" type="text" id="name" required placeholder="" />
-                  <label class="form-label" for="name">Name</label>
-                  <small class="form-text text-danger help-block"></small>
-                </div>
-              </div>
+        <form
+          action="https://formspree.io/f/xkgeyqvj"
+          method="POST"
+        >
 
-              <div>
-                <div class="mb-0 pb-2 form-floating">
-                  <input class="form-control" type="email" id="email" required placeholder="" />
-                  <label class="form-label" for="email">Email Address</label>
-                  <small class="form-text text-danger help-block"></small>
-                </div>
-              </div>
-
-              <div>
-                <div class="mb-0 pb-2 form-floating">
-                  <input class="form-control" type="text" id="subject" required placeholder="" />
-                  <label class="form-label" for="subject">Subject</label>
-                  <small class="form-text text-danger help-block"></small>
-                </div>
-              </div>
-
-              <div>
-                <div class="mb-5 pb-2 form-floating">
-                  <textarea class="form-control" id="message" required placeholder="" style="height: 150px;"></textarea>
-                  <label class="form-label" for="message">Message</label>
-                  <small class="form-text text-danger help-block"></small>
-                </div>
-              </div>
-
-              <div id="success"></div>
-              <div><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Send</button></div>
-            </form>
+          <!-- Name -->
+          <div class="mb-4 form-floating">
+            <input class="form-control" type="text" id="name" name="name" required placeholder="Your Name" />
+            <label class="form-label" for="name">Name</label>
           </div>
-        </div>
+
+          <!-- Email -->
+          <div class="mb-4 form-floating">
+            <input class="form-control" type="email" id="email" name="email" required placeholder="name@example.com" />
+            <label class="form-label" for="email">Email Address</label>
+          </div>
+
+          <!-- Subject -->
+          <div class="mb-4 form-floating">
+            <input class="form-control" type="text" id="subject" name="subject" required placeholder="Subject" />
+            <label class="form-label" for="subject">Subject</label>
+          </div>
+
+          <!-- Message -->
+          <div class="mb-5 form-floating">
+            <textarea class="form-control" id="message" name="message" required placeholder="Message" style="height: 180px;"></textarea>
+            <label class="form-label" for="message">Message</label>
+          </div>
+
+          <!-- Spam protection -->
+          <input type="text" name="_gotcha" style="display:none" />
+
+          <!-- Success redirect optional -->
+          <input type="hidden" name="_next" value="/thank-you" />
+
+          <div class="text-center">
+            <button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Send</button>
+          </div>
+
+        </form>
       </div>
-    </section>
+    </div>
+  </div>
+
+  <style>
+    #contactForm .form-control {
+      width: 100%;
+      font-size: 1.1rem;
+      padding: 18px 16px;
+    }
+    #contactForm textarea {
+      resize: vertical;
+      min-height: 180px;
+    }
+    @media (min-width: 992px) {
+      #contactForm {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</section>
+
 
     <footer class="text-center footer">
       <div class="container">
